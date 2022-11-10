@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <title>Document</title>
+    <script>
+        function toggleShow() {
+            var el = document.getElementById("box");
+            el.classList.toggle("show");
+        }
+    </script>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            line-height: inherit;
+            box-sizing: inherit;
+        }
+
+        body {
+            color: #fa983a;
+            margin: 0;
+            padding: 0;
+            background: #272727;
+            font-family: "Montserrat", sans-serif;
+            line-height: 2;
+            box-sizing: border-box;
+            height: 100vh;
+        }
+
+        @keyframes imageAnimation {
+            0% {
+                opacity: 0;
+                animation-timing-function: ease-in;
+            }
+
+            8% {
+                opacity: 1;
+                animation-timing-function: ease-out;
+            }
+
+            17% {
+                opacity: 1
+            }
+
+            25% {
+                opacity: 0
+            }
+
+            100% {
+                opacity: 0
+            }
+        }
+
+
+        @keyframes titleAnimation {
+            0% {
+                opacity: 0
+            }
+
+            8% {
+                opacity: 1
+            }
+
+            17% {
+                opacity: 1
+            }
+
+            19% {
+                opacity: 0
+            }
+
+            100% {
+                opacity: 0
+            }
+        }
+
+        /* slideshoww */
+        .slideshow {
+            list-style-type: none;
+        }
+
+        /** SLIDESHOW **/
+        .slideshow,
+        .slideshow:after {
+            top: -16px;
+            /*Not sure why I needed this fix*/
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            left: 0px;
+            z-index: 0;
+        }
+
+        .slideshow li span {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            left: 0px;
+            color: transparent;
+            background-size: cover;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            opacity: 0;
+            z-index: 0;
+            animation: imageAnimation 30s linear infinite 0s;
+        }
+
+
+
+        .slideshow li:nth-child(1) span {
+            /* background-image: url("/images/adityan-ramkumar-VznjvnJiWeo-unsplash.jpg");  */
+            top: 16%;
+            left: 19%;
+        }
+
+        .slideshow li:nth-child(2) span {
+            /* background-image: url("/images/pexels-mayur-sable-13427001.jpg"); */
+            top: 16%;
+            left: 19%;
+            animation-delay: 6s;
+        }
+
+        .slideshow li:nth-child(3) span {
+            /* background-image: url("/images/pexels-sagar-soneji-3581364.jpg"); */
+            top: 16%;
+            left: 19%;
+
+            animation-delay: 12s;
+        }
+
+        .slideshow li:nth-child(4) span {
+            /* background-image: url("/images/sean-robertson-ag5OsQmyD8A-unsplash.jpg");    */
+            top: 16%;
+            left: 19%;
+            animation-delay: 18s;
+        }
+
+        .slideshow li:nth-child(5) span {
+            /* background-image: url("/images/t-s-nNM9dALmmOQ-unsplash.jpg"); */
+            top: 16%;
+            left: 19%;
+            animation-delay: 24s;
+        }
+
+
+
+
+
+
+        .no-cssanimations .cb-slideshow li span {
+            opacity: 1;
+        }
+
+        /* navbarr */
+        .navMenu {
+
+            position: absolute;
+            top: 5.5%;
+            left: 16%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            word-spacing: 6px;
+            z-index: 30;
+
+        }
+
+        .navMenu a {
+            z-index: 15;
+            color: #f6f4e6;
+            text-decoration: none;
+            font-size: 1.2em;
+            text-transform: uppercase;
+            font-weight: 500;
+
+            width: 80px;
+            -webkit-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+            z-index: 10;
+        }
+
+        .navMenu a:hover {
+            color: #fa983a;
+        }
+
+        .navMenu .dot {
+            z-index: 30;
+            width: 10px;
+            height: 10px;
+            background: #fa983a;
+            border-radius: 50%;
+            opacity: 0;
+            -webkit-transform: translateX(30px);
+            transform: translateX(30px);
+            -webkit-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .navMenu a:nth-child(1):hover~.dot {
+            z-index: 30;
+            -webkit-transform: translateX(30px);
+            transform: translateX(35px);
+            -webkit-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+            opacity: 1;
+
+        }
+
+        .navMenu a:nth-child(2):hover~.dot {
+            z-index: 30;
+            -webkit-transform: translateX(110px);
+            transform: translateX(130px);
+            -webkit-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+            opacity: 1;
+        }
+
+        .navMenu a:nth-child(3):hover~.dot {
+            z-index: 30;
+            -webkit-transform: translateX(200px);
+            transform: translateX(240px);
+            -webkit-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+            opacity: 1;
+        }
+
+        .navMenu a:nth-child(4):hover~.dot {
+            -webkit-transform: translateX(285px);
+            transform: translateX(350px);
+            -webkit-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+            opacity: 1;
+        }
+
+        /* serching */
+
+
+
+
+
+        .search-containt {
+
+            width: 350px;
+            height: auto;
+            color: #eee;
+            background-color: #fa983a;
+            /*   margin: 20vh auto; */
+            position: absolute;
+            top: 5%;
+            left: 80%;
+            transform: translate(-50%, -50%);
+            padding: 0.2rem;
+
+            border-radius: 4rem;
+            z-index: 10;
+            /* padding: 10px; */
+        }
+
+        .search__box {
+
+            float: left;
+            width: 0;
+            /* height: 4rem; */
+            /*   display: inline; */
+            background: none;
+            color: #f7f7f7;
+            font-size: 1.0rem;
+            border-radius: 2rem;
+            outline: none;
+            border: white;
+
+            position: relative;
+            opacity: 1;
+            transition: all .75s ease-in;
+            cursor: pointer;
+            /*   border: 2px solid tomato; */
+            /*   margin-top: 5px; */
+        }
+
+        /* .search__box:focus, .search__box:hover {
+  background-color: #f1f2f6;
+} */
+
+        .search__icon {
+            box-sizing: border-box;
+            float: right;
+            font-size: 1.2rem;
+            display: inline-block;
+            margin-left: -0.1999999999999993rem;
+            margin-top: 0;
+            cursor: pointer;
+            position: absolute;
+            color: #fa983a;
+            transition: all .25s ease-in;
+            padding: 0.4rem;
+            border-radius: 50%;
+        }
+
+        .search-containt:hover>.search__box {
+            width: 85%;
+            padding: 0 1rem;
+        }
+
+        .search-containt:hover>.search__icon {
+            background-color: #eee;
+        }
+
+        .show {
+            width: 85%;
+            border: 1px solid red;
+        }
+
+        .box {
+            color: #eee;
+        }
+
+
+        /* about us block */
+        .wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            /* background: linear-gradient(-135deg, #c850c0, #4158d0); */
+            /* background: linear-gradient(375deg, #1cc7d0, #2ede98); */
+            /* background: linear-gradient(-45deg, #e3eefe 0%, #efddfb 100%);*/
+            /* clip-path: circle(25px at calc(0% + 45px) 45px); */
+            background: rgb(237, 223, 223);
+            clip-path: circle(25px at calc(100% - 45px) 30px);
+            transition: all 0.3s ease-in-out;
+            z-index: 18;
+
+        }
+
+        #active:checked~.wrapper {
+            clip-path: circle(75%);
+        }
+
+        .menu-btn {
+            position: absolute;
+            z-index: 20;
+            right: 20px;
+            /* left: 20px; */
+            top: 6px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            line-height: 50px;
+            border-radius: 50%;
+            font-size: 20px;
+            color: #fa983a;
+            ;
+            cursor: pointer;
+            /*background: linear-gradient(-135deg, #c850c0, #4158d0);*/
+            /* background: linear-gradient(375deg, #1cc7d0, #2ede98); */
+            /* background: linear-gradient(-45deg, #e3eefe 0%, #efddfb 100%); */
+            background: rgb(253, 252, 252);
+            transition: all 0.3s ease-in-out;
+        }
+
+        #active:checked~.menu-btn {
+            color: #fa983a;
+        }
+
+        #active:checked~.menu-btn i:before {
+            content: "\f00d";
+        }
+
+        .wrapper ul {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            list-style: none;
+            text-align: center;
+        }
+
+        .wrapper ul li {
+            margin: 15px 0;
+        }
+
+        .wrapper ul li a {
+            color: none;
+            text-decoration: none;
+            font-size: 30px;
+            font-weight: 500;
+            padding: 5px 30px;
+            color: #fa983a;
+            border-radius: 50px;
+            background: #000;
+            position: relative;
+            line-height: 50px;
+            transition: all 0.3s ease;
+        }
+
+
+        .wrapper ul li a:hover {
+            color: #fa983a;
+            ;
+        }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            text-align: center;
+            width: 100%;
+            color: #202020;
+        }
+
+        .content .title {
+            font-size: 40px;
+            font-weight: 700;
+        }
+
+        .content p {
+            font-size: 35px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+
+    <body>
+        <nav class="navMenu">
+            <a href="#">|Home|</a>
+            <a href="#">|Explore|</a>
+            <a href="#">|Events|</a>
+            <a href="#">|Upcoming|</a>
+            <div class="dot"></div>
+
+        </nav>
+
+        <!-- search barrr -->
+        <div class="search-containt">
+            <input type="text" id="box" placeholder="You will be landing to.." class="search__box">
+            <i class="fas fa-search search__icon" id="icon" onclick="toggleShow()"></i>
+
+        </div>
+        <!-- about ussss -->
+        <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        </head>
+
+        <body>
+            <input type="checkbox" id="active">
+            <label for="active" class="menu-btn"><i class="fas fa-bars"></i></label>
+            <div class="wrapper">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Feedback</a></li>
+                </ul>
+
+            </div>
+            <div>
+                <ul class="slideshow">
+                    <li><span> <img src="adityan-ramkumar-VznjvnJiWeo-unsplash.jpg" alt="#" width="830"
+                                height="500"></span></li>
+                    <li><span><img src="pexels-mayur-sable-13427001.jpg" alt="#" width="830"
+                                height="500"></span></li>
+                    <li><span> <img src="pexels-cottonbro-studio-4429333.jpg" alt="#" width="830"
+                                height="500"></span></li>
+                    <li><span> <img src="sean-robertson-ag5OsQmyD8A-unsplash.jpg" alt="" width="830"
+                                height="500"></span></li>
+                    <li><span><img src="pexels-cottonbro-studio-4429333.jpg" alt="" width="830"
+                                height="500"></span>
+                    </li>
+                </ul>
+            </div>
+        </body>
+
+    </body>
+
+</html>
